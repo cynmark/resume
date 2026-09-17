@@ -1,0 +1,20 @@
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+
+# Editor, operating system, and temporary files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.log
+*.tmp
+node_modules/
+.codex/
+.agents/
