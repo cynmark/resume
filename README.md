@@ -12,6 +12,8 @@ GitHub Pages address: https://cynmark.github.io/resume/
 - `contact.html` — contact details and email-draft form
 - `styles.css` — shared responsive styles
 - `script.js` — section navigation and email-draft behavior
+- `theme.js` — system-aware dark mode and saved theme preference
+- `resume.pdf` — one-page English resume based on the public portfolio
 - `assets/portfolio-preview.png` — project preview image
 - `.nojekyll` — serves the static files without Jekyll processing
 
