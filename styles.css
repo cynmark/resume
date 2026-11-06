@@ -145,13 +145,14 @@ img { display: block; max-width: 100%; height: auto; }
 .profile-note p { font-size: 0.78rem; }
 .profile-note strong { color: var(--ink); font-weight: 600; }
 .note-marker { width: 6px; height: 6px; margin-top: 7px; background: #68844f; flex-shrink: 0; }
-.skill-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px; padding-block: 21px; border-bottom: 1px solid var(--line); }
-.skill-row:first-child { padding-top: 0; }
-.skill-row h3 { font-size: 0.88rem; font-weight: 500; }
-.skill-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; }
-.skill-list li { min-width: 64px; padding: 5px 14px; border: 1px solid #c4cebc; background: var(--white); border-radius: 4px; text-align: center; font: 0.85rem/1.6 var(--label-font); }
-.implementation-note { margin-top: 20px; font-size: 0.76rem; }
-.implementation-note strong { color: var(--ink); font-weight: 500; }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; min-width: 0; }
+.skill-card { min-width: 0; padding: 23px; border: 1px solid var(--line); border-radius: 8px; background: var(--white); transition: border-color 160ms ease; }
+.skill-card:hover { border-color: var(--muted); }
+.skill-card > .overline { color: var(--muted); }
+.skill-card h3 { margin-top: 10px; font-size: 0.95rem; }
+.skill-card > p { margin-top: 17px; font-size: 0.8rem; }
+.skill-list { display: flex; flex-wrap: wrap; gap: 7px; list-style: none; padding: 0; margin-top: 16px; }
+.skill-list li { max-width: 100%; padding: 4px 8px; border: 1px solid var(--line); background: var(--soft); border-radius: 4px; overflow-wrap: anywhere; font: 0.7rem/1.6 var(--label-font); }
 .education-records { display: grid; gap: 26px; }
 .education-record + .education-record { padding-top: 25px; border-top: 1px solid var(--line); }
 .record-label { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 12px; color: var(--muted); }
@@ -344,7 +345,6 @@ html { scroll-padding-top: 145px; }
 [data-theme="dark"] .record-badge { color: #c2d3b5; }
 [data-theme="dark"] .project-placeholder { border-color: #617955; }
 [data-theme="dark"] .placeholder-mark { color: #a6be92; }
-[data-theme="dark"] .skill-list li { border-color: #586f4c; }
 [data-theme="dark"] .site-footer { background: #1b2a20; border-color: var(--line); }
 [data-theme="dark"] .required { color: #efbc92; }
 [data-theme="dark"] input,
