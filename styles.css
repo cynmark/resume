@@ -138,10 +138,17 @@ img { display: block; max-width: 100%; height: auto; }
 /* Team work has its own section and editorial preview/detail layout. */
 .team-projects { margin-top: 40px; padding-top: 38px; border-top: 1px solid var(--line); }
 .team-case-study { display: grid; gap: 26px; }
+.team-case-study + .team-case-study { margin-top: 36px; padding-top: 36px; border-top: 1px solid var(--line); }
+.team-project-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+.team-project-nav a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 9px 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--white); font-size: 0.78rem; text-decoration: none; }
+.team-project-nav a span { color: var(--muted); font: 0.68rem/1 var(--label-font); }
+.team-project-nav a:hover { border-color: var(--muted); background: var(--soft); }
+.team-preview--diagram .team-preview-link { background: #fff; }
+.team-preview--diagram img { aspect-ratio: 1.44; object-fit: contain; }
 .team-preview { min-width: 0; margin: 0; padding: 18px; align-self: start; border: 1px solid var(--line); border-radius: 10px; background: var(--soft); }
 .team-preview-label { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 18px; color: var(--muted); }
 .team-status { padding: 3px 8px; border: 1px solid var(--line); border-radius: 20px; background: var(--white); color: var(--ink); font-size: 0.67rem; }
-.team-preview-link { display: block; border: 1px solid var(--line); border-radius: 5px; overflow: hidden; transition: border-color 160ms ease, box-shadow 160ms ease; }
+.team-preview-link { display: block; width: 100%; padding: 0; background: var(--white); border: 1px solid var(--line); border-radius: 5px; overflow: hidden; cursor: zoom-in; transition: border-color 160ms ease, box-shadow 160ms ease; }
 .team-preview-link:hover { border-color: var(--muted); box-shadow: 0 4px 14px rgb(0 0 0 / 10%); }
 .team-preview img { width: 100%; height: auto; }
 .team-preview figcaption { margin-top: 15px; color: var(--muted); font-size: 0.72rem; line-height: 1.7; }
@@ -168,6 +175,21 @@ img { display: block; max-width: 100%; height: auto; }
     .team-case-study { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
     .team-preview { padding: 22px; }
 }
+
+/* In-page project image preview */
+.preview-open { overflow: hidden; }
+.image-preview { width: min(1200px, calc(100% - 24px)); max-width: none; max-height: 94dvh; margin: auto; padding: 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); color: var(--ink); box-shadow: 0 18px 60px rgb(0 0 0 / 25%); }
+.image-preview::backdrop { background: rgb(0 0 0 / 72%); }
+.preview-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.preview-toolbar h2 { font: 600 1rem/1.4 var(--body-font); max-width: 45ch; }
+.preview-actions { display: flex; gap: 8px; }
+.preview-actions form { margin: 0; }
+.preview-control { min-height: 44px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 5px; background: var(--white); color: var(--ink); font-size: 0.8rem; }
+.preview-control:hover { background: var(--soft); border-color: var(--muted); }
+.preview-image-area { overflow: auto; max-height: 68dvh; border-radius: 5px; background: var(--soft); }
+.preview-image-area img { width: auto; max-width: 100%; max-height: 68dvh; margin-inline: auto; object-fit: contain; }
+.preview-image-area.is-zoomed img { max-width: none; max-height: none; margin: 0; }
+.preview-help { margin-top: 12px; font-size: 0.72rem; line-height: 1.5; }
 
 /* 5. Profile, skills, and academic records */
 .section-with-rail { display: grid; gap: 24px; }

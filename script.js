@@ -1,3 +1,50 @@
+// Preview project images in the current page using the native accessible dialog.
+const preview = document.getElementById('project-preview');
+if (preview) {
+    const image = document.getElementById('preview-image');
+    const title = document.getElementById('preview-title');
+    const imageArea = document.getElementById('preview-image-area');
+    const zoom = document.getElementById('preview-zoom');
+    let trigger;
+
+    function resetZoom() {
+        imageArea.classList.remove('is-zoomed');
+        imageArea.scrollTo(0, 0);
+        zoom.setAttribute('aria-pressed', 'false');
+        zoom.textContent = 'Zoom in';
+    }
+
+    document.querySelectorAll('[data-preview-title]').forEach((button) => {
+        button.addEventListener('click', () => {
+            trigger = button;
+            const thumbnail = button.querySelector('img');
+            image.src = thumbnail.src;
+            image.alt = thumbnail.alt;
+            title.textContent = button.dataset.previewTitle;
+            resetZoom();
+            preview.showModal();
+            document.documentElement.classList.add('preview-open');
+        });
+    });
+
+    zoom.addEventListener('click', () => {
+        const enlarged = imageArea.classList.toggle('is-zoomed');
+        zoom.setAttribute('aria-pressed', String(enlarged));
+        zoom.textContent = enlarged ? 'Fit image' : 'Zoom in';
+        imageArea.scrollTo(0, 0);
+    });
+    preview.addEventListener('click', (event) => {
+        const bounds = preview.getBoundingClientRect();
+        if (event.target === preview && (event.clientX < bounds.left || event.clientX > bounds.right ||
+            event.clientY < bounds.top || event.clientY > bounds.bottom)) preview.close();
+    });
+    preview.addEventListener('close', () => {
+        document.documentElement.classList.remove('preview-open');
+        resetZoom();
+        trigger?.focus({ preventScroll: true });
+    });
+}
+
 // Keep the section navigation in sync without hiding any links on mobile.
 const homeSection = document.getElementById('home');
 
