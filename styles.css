@@ -135,6 +135,40 @@ img { display: block; max-width: 100%; height: auto; }
 .project-placeholder p:not(.overline) { max-width: 260px; margin-top: 10px; font-size: 0.8rem; }
 .placeholder-label { padding: 3px 8px; background: var(--soft); color: #596752; font: 0.62rem/1.6 var(--label-font); }
 
+/* Team work has its own section and editorial preview/detail layout. */
+.team-projects { margin-top: 40px; padding-top: 38px; border-top: 1px solid var(--line); }
+.team-case-study { display: grid; gap: 26px; }
+.team-preview { min-width: 0; margin: 0; padding: 18px; align-self: start; border: 1px solid var(--line); border-radius: 10px; background: var(--soft); }
+.team-preview-label { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 18px; color: var(--muted); }
+.team-status { padding: 3px 8px; border: 1px solid var(--line); border-radius: 20px; background: var(--white); color: var(--ink); font-size: 0.67rem; }
+.team-preview-link { display: block; border: 1px solid var(--line); border-radius: 5px; overflow: hidden; transition: border-color 160ms ease, box-shadow 160ms ease; }
+.team-preview-link:hover { border-color: var(--muted); box-shadow: 0 4px 14px rgb(0 0 0 / 10%); }
+.team-preview img { width: 100%; height: auto; }
+.team-preview figcaption { margin-top: 15px; color: var(--muted); font-size: 0.72rem; line-height: 1.7; }
+.team-preview figcaption span { font-size: 0.68rem; }
+.team-project-content { min-width: 0; }
+.team-project-content > .overline { margin-bottom: 10px; color: var(--muted); }
+.team-project-content h3 { font-family: var(--heading-font); font-size: 1.8rem; font-weight: 400; letter-spacing: -0.025em; }
+.team-project-content > p:not(.overline) { margin-top: 12px; font-size: 0.85rem; }
+.team-project-content > .team-subtitle { margin-top: 5px; color: var(--ink); font-weight: 600; }
+.team-contributions { padding: 17px 19px; border-left: 3px solid var(--green); border-radius: 0 6px 6px 0; background: var(--soft); }
+.team-contributions h4 { margin: 0 0 7px; font-size: 0.84rem; }
+.team-contributions p { font-size: 0.8rem; }
+.team-contributions .team-role { color: var(--ink); font-weight: 600; }
+.team-contributions ul { margin-top: 9px; padding-left: 18px; color: var(--muted); font-size: 0.79rem; }
+.team-contributions li + li { margin-top: 5px; }
+.team-details { margin-top: 19px; border-block: 1px solid var(--line); }
+.team-details summary { font-size: 0.8rem; }
+.team-detail-content { padding: 2px 0 18px; color: var(--muted); font-size: 0.79rem; }
+.team-detail-content ul { padding-left: 18px; }
+.team-detail-content li + li { margin-top: 5px; }
+.team-detail-content p { margin-top: 13px; }
+.team-project-actions { margin-top: 14px; }
+@media (min-width: 950px) {
+    .team-case-study { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
+    .team-preview { padding: 22px; }
+}
+
 /* 5. Profile, skills, and academic records */
 .section-with-rail { display: grid; gap: 24px; }
 .section-rail > p:last-child:not(.overline) { margin-top: 13px; max-width: 190px; font-size: 0.8rem; }
