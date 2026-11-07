@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>CYN</title>
+  <rect width="32" height="32" rx="7" fill="#193b32"/>
+  <path d="M23 8H13L8 13V19L13 24H23" fill="none" stroke="#d7edaa" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="bevel"/>
+</svg>

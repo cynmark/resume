@@ -9,6 +9,7 @@ if (preview) {
 
     function resetZoom() {
         imageArea.classList.remove('is-zoomed');
+        imageArea.tabIndex = -1;
         imageArea.scrollTo(0, 0);
         zoom.setAttribute('aria-pressed', 'false');
         zoom.textContent = 'Zoom in';
@@ -29,9 +30,24 @@ if (preview) {
 
     zoom.addEventListener('click', () => {
         const enlarged = imageArea.classList.toggle('is-zoomed');
+        imageArea.tabIndex = enlarged ? 0 : -1;
         zoom.setAttribute('aria-pressed', String(enlarged));
         zoom.textContent = enlarged ? 'Fit image' : 'Zoom in';
         imageArea.scrollTo(0, 0);
+    });
+    // Keep Tab navigation inside the preview, including its scrollable zoom area.
+    preview.addEventListener('keydown', (event) => {
+        if (event.key !== 'Tab') return;
+        const controls = [...preview.querySelectorAll('button:not([disabled]), [tabindex="0"]')];
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
     });
     preview.addEventListener('click', (event) => {
         const bounds = preview.getBoundingClientRect();
