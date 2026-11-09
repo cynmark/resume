@@ -261,6 +261,8 @@ details[open] > summary > span { transform: rotate(45deg); }
 .details-content h3, .reference-list h3 { font-size: 0.85rem; }
 .details-content p { margin-top: 5px; font-size: 0.8rem; }
 .details-content .detail-caption { font-size: 0.72rem; }
+.activity-list { display: grid; gap: 18px; list-style: none; }
+.activity-list h3 { line-height: 1.6; }
 .reference-list { display: grid; gap: 14px; list-style: none; font-size: 0.78rem; }
 .reference-list a { overflow-wrap: anywhere; }
 
