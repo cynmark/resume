@@ -60,20 +60,24 @@
                 <section class="personal-projects" aria-labelledby="projects-title">
                 <div class="section-heading">
                     <div><p class="overline section-number">01 / Personal Projects</p><h2 id="projects-title">Personal projects</h2></div>
-                    <p>Independent projects, from a personal portfolio to a restaurant website.</p>
+                    <p>Independent web projects, from live websites to ongoing frontend development.</p>
                 </div>
+                <nav class="personal-project-tabs" aria-label="Personal project navigation">
+                    <a href="#personal-panel-khaotom" aria-current="location"><span>01 /</span> Khao Tom Peng Peng</a>
+                    <a href="#personal-panel-portfolio"><span>02 /</span> Personal Portfolio</a>
+                    <a href="#personal-panel-split"><span>03 /</span> Split Bill</a>
+                </nav>
                 <div class="projects-grid">
-                    <article class="project-card project-spotlight" aria-labelledby="khaotom-project-title">
+                    <article class="project-card" id="personal-panel-khaotom" tabindex="-1" aria-labelledby="khaotom-project-title">
                         <div class="project-cover">
-                            <span class="overline">Featured project / Restaurant</span>
+                            <span class="overline">01 / Restaurant</span>
                             <button class="team-preview-link personal-preview" type="button" data-preview-title="Khao Tom Peng Peng" aria-label="Preview Khao Tom Peng Peng screenshot" aria-haspopup="dialog" aria-controls="project-preview">
                                 <img src="assets/khaotom-pengpeng-preview.png" width="1440" height="1000" alt="Khao Tom Peng Peng homepage with Thai restaurant branding, food photography, and menu navigation." loading="lazy" decoding="async">
                                 <span class="preview-expand" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" focusable="false"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7"/></svg></span>
                             </button>
-                            <span class="cover-caption">Public website · Deployed on Cloudflare Pages</span>
+                            <span class="cover-caption">Deployed on Cloudflare Pages · Click image to expand</span>
                         </div>
                         <div class="project-content">
-                            <p class="overline">Web application</p>
                             <h3 id="khaotom-project-title">Khao Tom Peng Peng</h3>
                             <p class="project-subtitle">Restaurant Website &amp; Admin Management System</p>
                             <p>A responsive restaurant website built with HTML, CSS, JavaScript, and Supabase, with an interactive menu and an authenticated dashboard for managing restaurant content.</p>
@@ -92,32 +96,56 @@
                             </div>
                         </div>
                     </article>
-                    <article class="project-card featured-project">
+                    <article class="project-card" id="personal-panel-portfolio" tabindex="-1" aria-labelledby="portfolio-project-title">
                         <div class="project-cover">
-                            <span class="overline">Featured project / 01</span>
+                            <span class="overline">02 / Portfolio</span>
                             <button class="team-preview-link personal-preview" type="button" data-preview-title="Personal Portfolio Website" aria-label="Preview Personal Portfolio Website screenshot" aria-haspopup="dialog" aria-controls="project-preview">
                                 <img src="assets/portfolio-preview.png" width="1000" height="435" alt="Preview of this portfolio’s homepage, featuring an internship introduction and profile details." decoding="async">
                                 <span class="preview-expand" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" focusable="false"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7"/></svg></span>
                             </button>
-                            <span class="cover-caption">Personal portfolio · Web Technology</span>
+                            <span class="cover-caption">Web Technology · Click image to expand</span>
                         </div>
                         <div class="project-content">
-                            <p class="overline">Website</p>
-                            <h3>Personal portfolio</h3>
+                            <h3 id="portfolio-project-title">Personal Portfolio Website</h3>
+                            <p class="project-subtitle">Developer Internship Portfolio</p>
                             <p>A responsive, two-page website presenting my background, skills, and contact details. Includes section navigation and a contact form that prepares an email draft.</p>
+                            <ul class="project-features" aria-label="Personal Portfolio features">
+                                <li>Responsive layout and persistent light/dark mode</li>
+                                <li>Keyboard-accessible project image previews with zoom</li>
+                                <li>Downloadable resume and email-draft contact form</li>
+                            </ul>
                             <ul class="technology-list" aria-label="Project technologies"><li>HTML</li><li>CSS</li><li>Vanilla JavaScript</li></ul>
                             <div class="project-links">
                                 <a class="text-link" href="index.html">View live website <span aria-hidden="true">↗</span></a>
-                                <span class="source-note">Source link not yet added</span>
+                                <a class="text-link" href="https://github.com/cynmark/resume" target="_blank" rel="noopener noreferrer" aria-label="Personal Portfolio GitHub repository (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a>
                             </div>
                         </div>
                     </article>
-                    <!-- Replace this placeholder with another project-card when real project details are available.
-                         Include its name, description, technologies, and only verified GitHub or demo URLs. -->
-                    <article class="project-placeholder" aria-labelledby="next-project-title">
-                        <span class="placeholder-mark" aria-hidden="true">+</span>
-                        <div><p class="overline">Room for what’s next</p><h3 id="next-project-title">More work to come</h3><p>Additional projects and their details will appear here.</p></div>
-                        <span class="placeholder-label">Project space</span>
+                    <article class="project-card" id="personal-panel-split" tabindex="-1" aria-labelledby="split-bill-project-title">
+                        <div class="project-cover">
+                            <span class="overline">03 / Expense sharing</span>
+                            <button class="team-preview-link personal-preview" type="button" data-preview-title="Split Bill — In Progress" aria-label="Preview Split Bill dashboard screenshot" aria-haspopup="dialog" aria-controls="project-preview">
+                                <img src="assets/split-bill-preview.png" width="1440" height="1000" alt="Split Bill prototype dashboard with sample balances, a spending chart, and shared-expense group cards." loading="lazy" decoding="async">
+                                <span class="preview-expand" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" focusable="false"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7"/></svg></span>
+                            </button>
+                            <span class="cover-caption">Actual prototype · Sample data · Click image to expand</span>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-title-row"><h3 id="split-bill-project-title">Split Bill</h3><span class="project-status">In Progress</span></div>
+                            <p class="project-subtitle">Expense Sharing Web Application</p>
+                            <p>An ongoing frontend project exploring shared-expense workflows through a responsive dashboard, interactive forms, and English/Thai localization.</p>
+                            <ul class="project-features" aria-label="Split Bill implemented features">
+                                <li>Group search, category filters, and in-memory group creation</li>
+                                <li>Expense forms with Equal, Exact, and Percentage split validation</li>
+                                <li>Activity search, light/dark modes, and keyboard-accessible dialogs</li>
+                            </ul>
+                            <p class="project-scope">Prototype: group and expense changes reset on reload. Balances and insights use fixed sample data; no backend or real authentication.</p>
+                            <ul class="technology-list" aria-label="Split Bill technologies"><li>HTML5</li><li>CSS3</li><li>Vanilla JavaScript</li></ul>
+                            <div class="project-links">
+                                <a class="text-link" href="https://github.com/cynmark/split-bill" target="_blank" rel="noopener noreferrer" aria-label="Split Bill GitHub repository (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a>
+                                <span class="source-note">Local prototype</span>
+                            </div>
+                        </div>
                     </article>
                 </div>
                 </section>

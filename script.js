@@ -1,3 +1,66 @@
+// Personal project links use native anchors; scrolling only updates their active state.
+const projectNavigation = document.querySelector('.personal-project-tabs');
+if (projectNavigation) {
+    const links = [...projectNavigation.querySelectorAll('a')];
+    const cards = links.map(link => document.getElementById(link.hash.slice(1)));
+    const header = document.querySelector('.site-header');
+    let scheduled = false;
+    let clickedProject = null;
+    let settleTimer;
+
+    function highlight(index) {
+        links.forEach((link, position) => {
+            if (position === index) link.setAttribute('aria-current', 'location');
+            else link.removeAttribute('aria-current');
+        });
+    }
+
+    function updateProject() {
+        scheduled = false;
+        if (clickedProject !== null) return;
+        const anchorOffset = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+        const readingLine = Math.max(header.getBoundingClientRect().height, anchorOffset) + 64;
+        let active = 0;
+        cards.forEach((card, index) => {
+            if (card.getBoundingClientRect().top <= readingLine) active = index;
+        });
+        highlight(active);
+    }
+
+    // Keep the clicked link selected during smooth scrolling, then resume scroll tracking.
+    function settleSelection() {
+        clearTimeout(settleTimer);
+        settleTimer = setTimeout(() => {
+            clickedProject = null;
+            updateProject();
+        }, 180);
+    }
+
+    links.forEach((link, index) => link.addEventListener('click', event => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        if (location.hash !== link.hash) history.pushState(null, '', link.hash);
+        cards[index].focus({ preventScroll: true });
+        cards[index].scrollIntoView({
+            behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+            block: 'start'
+        });
+        clickedProject = index;
+        highlight(index);
+        settleSelection();
+    }));
+    window.addEventListener('scroll', () => {
+        if (clickedProject !== null) settleSelection();
+        if (!scheduled) {
+            scheduled = true;
+            requestAnimationFrame(updateProject);
+        }
+    }, { passive: true });
+    window.addEventListener('resize', updateProject);
+    window.addEventListener('load', updateProject);
+    updateProject();
+}
+
 // Preview project images in the current page using the native accessible dialog.
 const preview = document.getElementById('project-preview');
 if (preview) {
